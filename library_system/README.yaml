@@ -1,0 +1,12 @@
+frontend : Node.js
+backend : Python
+
+Node.js <-> python_code <-> MySQL_database
+
+
+########################################################################################################
+Install Required Software:
+
+MySQL: Ensure that MySQL Server is installed and running.
+Python: Make sure Python is installed (version 3.6 or higher).
+MySQL Connector: Install the MySQL Connector for Python.
