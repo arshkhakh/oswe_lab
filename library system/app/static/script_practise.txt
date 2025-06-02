@@ -1,0 +1,31 @@
+document.getElementById('login-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+
+    // Create a URL-encoded string of the form data
+    const formData = new URLSearchParams();
+    formData.append('username', username);
+    formData.append('password', password);
+
+    // Send the POST request using fetch API
+    fetch('http://localhost:8000/login1', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.text(); // Expecting a simple text response
+        }
+        throw new Error('Login failed');
+    })
+    .then(data => {
+        // Show success message in the div
+        document.getElementById('book-message').innerHTML = data;
+    })
+    .catch(error => {
+        // Show error message in the div
+        document.getElementById('book-message').innerHTML = error.message;
+    });
+});
